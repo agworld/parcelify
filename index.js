@@ -192,6 +192,7 @@ Parcelify.prototype.processParcel = function( browserifyInstance, options, callb
 					}
 
 					if( ! _this.watching ) _this.emit( 'done' );
+					else _this.emit( 'updateDone' );
 
 					nextSeries();
 				} ], callback );
