@@ -11,7 +11,7 @@ var glob = require( 'glob' );
 var Package = require( './lib/package' );
 var Parcel = require( './lib/parcel' );
 var inherits = require( 'inherits' );
-var log = require( 'npmlog' );
+// var log = require( 'npmlog' );
 
 var EventEmitter = require('events').EventEmitter;
 var Package = require('./lib/package.js');
@@ -65,7 +65,7 @@ function Parcelify( mainPath, options ) {
 		var mappedAssets = {};
 
 		_this.on( 'error', function( err ) {
-			log.error( '', err ); // otherwise errors kill our watch task. Especially bad for transform errors
+			// // log.error( '', err ); // otherwise errors kill our watch task. Especially bad for transform errors
 		} );
 
 		if( options.watch ) {
@@ -254,7 +254,7 @@ Parcelify.prototype.instantiateParcelAndPackagesFromMap = function( parcelMap, e
 						thisDependentParcel.calcParcelAssets( assetTypes );
 					} );
 
-					log.warn( '', 'Recreated package at ' + thisPackage.path + ' as Parcel.' );
+					// // log.warn( '', 'Recreated package at ' + thisPackage.path + ' as Parcel.' );
 				} else
 					thisPackage = existingPacakages[ thisPackageId ];
 
