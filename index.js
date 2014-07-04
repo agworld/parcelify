@@ -65,7 +65,7 @@ function Parcelify( mainPath, options ) {
 		var mappedAssets = {};
 
 		_this.on( 'error', function( err ) {
-			// log.error( '', err ); // otherwise errors kill our watch task. Especially bad for transform errors
+			//ack log.error( '', err ); // otherwise errors kill our watch task. Especially bad for transform errors
 		} );
 
 		if( options.watch ) {
@@ -255,7 +255,7 @@ Parcelify.prototype.instantiateParcelAndPackagesFromMap = function( parcelMap, e
 						thisDependentParcel.calcParcelAssets( assetTypes );
 					} );
 
-					// log.warn( '', 'Recreated package at ' + thisPackage.path + ' as Parcel.' );
+					//ack log.warn( '', 'Recreated package at ' + thisPackage.path + ' as Parcel.' );
 				} else
 					thisPackage = existingPacakages[ thisPackageId ];
 
@@ -306,6 +306,9 @@ Parcelify.prototype._setupParcelEventRelays = function( parcel ) {
 
 	parcel.on( 'bundleUpdated', function( bundlePath, assetType ) {
 		_this.emit( 'bundleWritten', bundlePath, assetType, true );
+	} );
+	parcel.on( 'allBundlesWritten', function(  ) {
+		 _this.emit( 'assetUpdateDone' );
 	} );
 };
 
