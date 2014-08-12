@@ -334,23 +334,9 @@ Parcelify.prototype._createPackageTransform = function( existingPackageFilter, a
 		return pkg;
 	}
 
-	// make another transform that curries the browserify transforms to our generalized transform key
-	function curryTransformsToBrowserify( pkg ) {
-		if( pkg.transforms && _.isArray( pkg.transforms ) ) {
-			if( ! pkg.browserify ) pkg.browserify = {};
-			if( ! pkg.browserify.transform ) pkg.browserify.transform = [];
-
-			pkg.browserify.transform = pkg.transforms.concat( pkg.browserify.transform );
-		}
-
-		return pkg;
-	}
-
 	return function( pkg, dirPath ) {
 		if( existingPackageFilter ) pkg = existingPackageFilter( pkg, dirPath );
-		pkg = applyAppTransforms( pkg, dirPath );
-		pkg = curryTransformsToBrowserify( pkg, dirPath );
 
-		return pkg;
+		return applyAppTransforms( pkg, dirPath );
 	};
 };
