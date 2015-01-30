@@ -1,5 +1,5 @@
 # Deprecated
-**This fork is no longer in use. Some of our old code may still depend on it, however, but feel free to delete it when you're comfortable that's no longer the case.**
+**This fork is no longer in use. Some of our old branches may still depend on it, but feel free to delete it when you're comfortable that's no longer the case.**
 
 
 # Parcelify
